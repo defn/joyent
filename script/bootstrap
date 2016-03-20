@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+function bootstrap {
+  local shome="$(cd -P -- "$(dirname -- "$BASH_SOURCE")/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  block compile virtualenv
+  ln -nfs "$shome/vendor/virtualenv/bin/mantash" "$shome/bin/"
+
+  npm install
+  env shome="$shome" runmany 'ln -nfs "$shome/node_modules/.bin/$1" "$shome/bin/"' \
+    mchattr mchmod  mfind mget  minfo mjob  mln mlogin  mls mmd5  mmkdir  mput  mrm mrmdir  msign muntar \
+    triton
+}
+
+bootstrap

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+function main {
+  local shome="$(cd -P -- "${BASH_SOURCE%/*}/.." && pwd -P)"
+  source "$shome/script/profile"
+
+  if [[ -x "$(type -P mantash)" ]]; then
+    if [[ -x "$(type -P xxxx)" ]]; then
+     return 1
+    fi
+  fi
+
+  return 0
+}
+
+source sub "$BASH_SOURCE" "$@"
