@@ -5,7 +5,7 @@ function main {
   source "$shome/script/profile"
 
   if [[ -x "$(type -P mantash)" ]]; then
-    if [[ -x "$(type -P xxxx)" ]]; then
+    if [[ -x "$(type -P triton)" ]]; then
      return 1
     fi
   fi
